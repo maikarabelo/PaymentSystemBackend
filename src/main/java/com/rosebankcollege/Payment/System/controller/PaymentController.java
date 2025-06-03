@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/payments")
-@CrossOrigin(origins = {"http://localhost:3000/" , "https://regal-fenglisu-b4e3d4.netlify.app/"})
+@CrossOrigin(origins = {"http://localhost:3000/" , "https://subtle-stroopwafel-38d31e.netlify.app/"})
 public class PaymentController {
     private final PaymentService paymentService;
 
