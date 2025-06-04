@@ -58,4 +58,22 @@ public class PaymentService {
         accNumber = maskedPart + last4Digits;
         return accNumber;
     }
+    public Payment processPayment(Long paymentId) {
+
+        Optional<Payment> optPayment = paymentRepository.findById(paymentId);
+
+        if(optPayment.isPresent()) {
+
+            optPayment.get().setStatus("Processed");
+
+            return paymentRepository.save(optPayment.get());
+
+        }
+
+        return null;
+
+    }
+ 
+ 
+    
 }
