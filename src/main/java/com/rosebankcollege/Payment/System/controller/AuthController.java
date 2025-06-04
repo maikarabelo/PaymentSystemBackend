@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {"http://localhost:3000/" , "https://subtle-stroopwafel-38d31e.netlify.app/"})
+@CrossOrigin(origins = {"http://localhost:3000/" , "https://subtle-stroopwafel-38d31e.netlify.app/", "https://benevolent-pie-57be01.netlify.app/"})
 public class AuthController {
     private final UserRepository userRepository;
     private final EmployeeRepository employeeRepository;
