@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/payments")
-@CrossOrigin(origins = {"http://localhost:3000/" , "https://subtle-stroopwafel-38d31e.netlify.app/"})
+@CrossOrigin(origins = {"http://localhost:3000/" , "https://subtle-stroopwafel-38d31e.netlify.app/", "https://benevolent-pie-57be01.netlify.app/"})
 public class PaymentController {
     private final PaymentService paymentService;
 
@@ -24,7 +24,7 @@ public class PaymentController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Payment successful, refNo: " + savedPayment.getId());
     }
 
-    @PostMapping("/getAll")
+    @GetMapping("/getAll")
     public ResponseEntity<List<Payment>> getAllPayments() {
         return ResponseEntity.ok(paymentService.getAllPayments());
     }
@@ -38,5 +38,7 @@ public class PaymentController {
     public ResponseEntity<List<Payment>> getPaymentByUserId(@PathVariable Long userId) {
         return ResponseEntity.ok(paymentService.getPaymentsByUserId(userId));
     }
-
+    @PostMapping("/processPayment/{paymentId}")
+    public ResponseEntity<Payment> processPayment(@PathVariable Long paymentId) 
+    {    return ResponseEntity.ok(paymentService.processPayment(paymentId));}
 }
